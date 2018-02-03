@@ -17,6 +17,7 @@
         crossorigin="anonymous">
     <!-- <link href="narrow-jumbotron.css" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+    
 </head>
 
 <body>
@@ -24,12 +25,13 @@
     <div class="container">
         <div class="jumbotron bg-success">
             <h1 class="display-3 text-center">Lord of the Fries</h1>
-            <p class="lead text-center">View Tables</p>
-            <a class="btn btn-dark btn-md" href="" style="margin-right:10px; margin-top:15px;">Reserve a Table</a>
+            <p class="lead text-center">Make your reservation below</p>
+            <a class="btn btn-dark btn-md" href="" style="margin-right:10px; margin-top:15px;">View Tables</a>
         </div>
         <div class="span12" id="form">
+                <div class="card rounded">
+                        <div class="card-body">
             <form>
-
                 <div class="form-group ion-text">
                     <label for="worker">Name</label>
                     <input type="text" class="form-control p-2 foc mb-3 name" id="name">
@@ -60,13 +62,39 @@
                 </div>
                 <br>
             </form>
+            </div>
+            </div>
         </div>
     </div>
+
     <script type="text/javascript">
+<<<<<<< HEAD
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+
+      var newReservation= {
+        name: $("#name").val().trim(),
+        role: $("#role").val().trim(),
+        age: $("#age").val().trim(),
+        forcePoints: $("#force-points").val().trim()
+      };
+
+      // Question: What does this code do??
+      $.post("/api/new", newCharacter)
+      .then(function(data) {
+        console.log(data);
+        alert("Adding character...");
+      });
+
+    });
+  </script>
+=======
 
 
         
     </script>
+>>>>>>> bf7b1bd85aea6799dc502738b9a6aba6b4d19136
 
 </body>
 
