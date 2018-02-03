@@ -13,7 +13,7 @@ module.exports = function(app) {
 
   app.post("/api/tables", function(req, res) {
     
-    if (tableInfo.length < 8) {
+    if (tableInfo.length < 5) {
       tableInfo.push(req.body);
       res.json(true);
     }
