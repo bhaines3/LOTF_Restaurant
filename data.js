@@ -1,4 +1,4 @@
-var tableReservation={
+var tableInfo = {
     cutomerName:"Jane Doe",
     phoneNumber:"(520)234-1908",
     email:"jDoe@live.com",
@@ -6,4 +6,4 @@ var tableReservation={
 
 };
 
-module.exports(tableReservation);
+module.exports = tableInfo;
