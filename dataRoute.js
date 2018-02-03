@@ -1,5 +1,5 @@
-var tableInfo = require("/data");
-var waitlistInfo = require("/waitlist");
+var tableInfo = require("./data");
+var waitlistInfo = require("./waitlist");
 
 module.exports = function(app) {
 
