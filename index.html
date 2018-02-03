@@ -26,11 +26,15 @@
         <div class="jumbotron bg-warning">
             <h1 class="display-3 text-center">Lord of the Fries</h1>
             <p class="lead text-center">Make your reservation below</p>
-            <a class="btn btn-dark btn-md" href="" style="margin-right:10px; margin-top:15px;">View Tables</a>
+            <a class="btn btn-dark btn-md" href="tables.html" style="margin-right:10px; margin-top:15px;">View Tables</a>
         </div>
         <div class="span12" id="form">
-            <div class="card rounded">
+            <div class="card">
+                <div class="card-header">
+                    Table Reservation
+                </div>
                 <div class="card-body">
+
                     <form>
                         <div class="form-group ion-text">
                             <label for="worker">Name</label>
@@ -56,37 +60,60 @@
                             <i class="ion-ios-close-outline i-keyword"></i>
                         </div>
 
-                        <a class="btn btn-dark btn-md" href="" style="margin-right:10px; margin-top:15px;">Submit</a>
+                        <a class="btn btn-dark btn-md submit" href="" style="margin-right:10px; margin-top:15px;">Submit</a>
 
+                    </form>
                 </div>
             </div>
-            <br>
-            </form>
         </div>
-    </div>
-    </div>
     </div>
 
     <script type="text/javascript">
-        // Question: What does this code do?
-        $("#add-btn").on("click", function (event) {
-            event.preventDefault();
+        // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+   // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+   // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+   // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
 
-            var newReservation = {
-                name: $("#name").val().trim(),
-                role: $("#role").val().trim(),
-                age: $("#age").val().trim(),
-                forcePoints: $("#force-points").val().trim()
-            };
+   $(".submit").on("click", function(event) {
+    event.preventDefault();
 
-            // Question: What does this code do??
-            $.post("/api/new", newCharacter)
-                .then(function (data) {
-                    console.log(data);
-                    alert("Adding character...");
-                });
+    // Here we grab the form elements
+    var newReservation = {
+      customerName: $("#name").val().trim(),
+      phoneNumber: $("#phone").val().trim(),
+      customerEmail: $("#email").val().trim(),
+      customerID: $("#id").val().trim()
+    };
 
-        });
+    console.log(newReservation);
+
+    // This line is the magic. It"s very similar to the standard ajax function we used.
+    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+    // depending on if a tables is available or not.
+
+    $.post("/api/tables", newReservation,
+      function(data) {
+
+        // If a table is available... tell user they are booked.
+        if (data) {
+          alert("Yay! You are officially booked!");
+        }
+
+        // If a table is available... tell user they on the waiting list.
+        else {
+          alert("Sorry you are on the wait list");
+        }
+
+        // Clear the form when submitting
+        $("#name").val("");
+        $("#phone").val("");
+        $("#email").val("");
+        $("#id").val("");
+
+      });
+
+  });
     </script>
 
 </body>
