@@ -1,0 +1,23 @@
+{
+  "name": "lotf_restaurant",
+  "version": "1.0.0",
+  "description": "You can use the [editor on GitHub](https://github.com/bhaines3/LOTF_Restaurant/edit/master/README.md) to maintain and preview the content for your website in Markdown files.",
+  "main": "data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhaines3/LOTF_Restaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhaines3/LOTF_Restaurant/issues"
+  },
+  "homepage": "https://github.com/bhaines3/LOTF_Restaurant#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
+}
