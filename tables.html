@@ -21,45 +21,15 @@
         <div class="jumbotron bg-warning">
             <h1 class="display-3 text-center">Lord of the Fries</h1>
             <p class="lead text-center">Current Reservations and Waiting List</p>
-            <a class="btn btn-dark btn-md" href="index.html" style="margin-right:10px; margin-top:15px;">Make Reservation</a>
+            <a class="btn btn-dark btn-md" href="/" style="margin-right:10px; margin-top:15px;">Make Reservation</a>
         </div>
         <div class="span12" id="form">
             <div class="card">
                 <div class="card-header">
                     Current Reservation
                 </div>
-                <div class="card-body">
-
-                    <form>
-                        <div class="alert alert-secondary" role="alert">
-                            <h3>
-                                <span class="badge badge-secondary" id="tableWell-1">1</span>
-                            </h3>
-                        </div>
-
-                        <div class="alert alert-secondary" role="alert">
-                            <h3>
-                                <span class="badge badge-secondary" id="tableWell-2">2</span>
-                            </h3>
-                        </div>
-
-                        <div class="alert alert-secondary" role="alert">
-                            <h3>
-                                <span class="badge badge-secondary">3</span>
-                            </h3>
-                        </div>
-
-                        <div class="alert alert-secondary" role="alert">
-                            <h3>
-                                <span class="badge badge-secondary">4</span>
-                            </h3>
-                        </div>
-                        <div class="alert alert-secondary" role="alert">
-                            <h3>
-                                <span class="badge badge-secondary">5</span>
-                            </h3>
-                        </div>
-                    </form>
+                <div id= "tableSection" class="card-body">
+            
                 </div>
             </div>
             <br>
@@ -118,7 +88,9 @@
                         $("#tableSection").append(tableSection);
                         var tableNumber = i + 1;
                         // Then display the remaining fields in the HTML (Section Name, Date, URL)
-                        $("#tableWell-" + i + 1).append("<h2><span class='label label-primary'>" + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
+
+                        $("#tableWell-" + i + 1).append("<h2><span class='badge badge-secondary'>"+tableNumber+"</span>"+" "+tableData[i].customerID+"</h2>");
+                        
                     }
                 });
         }

@@ -4,7 +4,7 @@ var tableInfo = [
     cutomerName:"Jane Doe",
     phoneNumber:"(520)234-1908",
     email:"jDoe@live.com",
-    uniqueID:"33333"
+    customerID:"33333"
 
     }
 ];
